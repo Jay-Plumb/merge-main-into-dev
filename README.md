@@ -1,1 +1,1 @@
-# auto-pr-main-to-dev
+# Open PR to merge Main into Dev
