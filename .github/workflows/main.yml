@@ -6,9 +6,6 @@ on:
 
   workflow_dispatch:
 
-env:
-  GH_TOKEN: ${{ github.token }}
-
 permissions: # This is required to allow the action to create a PR
   pull-requests: write
 
@@ -21,3 +18,5 @@ jobs:
       - name: open PR
         run: |
           gh pr create --base dev --title "Upstream changes" --body "Merging upstream changes into development workflow" --repo ${{ github.repository }} --assignee @me --label "automerge"
+        env:
+          GH_TOKEN: ${{ github.token }}
