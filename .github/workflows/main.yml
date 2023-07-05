@@ -6,13 +6,7 @@ on:
 
   workflow_dispatch:
 
-permissions: # This is required to allow the action to create a PR
-  pull-requests: write
-  deployments: write
-  contents: write
-  statuses: write
-  actions: write
-  checks: read
+permissions: write-all
 
 jobs:
   pull-request:
