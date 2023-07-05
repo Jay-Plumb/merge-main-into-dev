@@ -17,4 +17,4 @@ jobs:
 
       - name: open PR
         run: |
-          gh pr create --base dev --title "Upstream changes" --body "Merging upstream changes into development workflow"
+          gh pr create --base dev --title "Upstream changes" --body "Merging upstream changes into development workflow" --repo ${{ github.repository }}
