@@ -9,6 +9,9 @@ on:
 env:
   GH_TOKEN: ${{ github.token }}
 
+permissions: # This is required to allow the action to create a PR
+  pull-requests: write
+
 jobs:
   pull-request:
     runs-on: ubuntu-latest
@@ -17,4 +20,4 @@ jobs:
 
       - name: open PR
         run: |
-          gh pr create --base dev --title "Upstream changes" --body "Merging upstream changes into development workflow" --repo ${{ github.repository }}
+          gh pr create --base dev --title "Upstream changes" --body "Merging upstream changes into development workflow" --repo ${{ github.repository }} --assignee @me --label "automerge"
