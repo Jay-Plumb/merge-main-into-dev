@@ -8,14 +8,14 @@ on:
 
 permissions: write-all
 
+env:
+  GH_TOKEN: ${{ github.token }}
+
 jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: open PR
-        run: |
-          gh pr create --base dev --title "Upstream changes" --body "Merging upstream changes into development workflow" --repo ${{ github.repository }} --assignee @me --label "automerge"
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
