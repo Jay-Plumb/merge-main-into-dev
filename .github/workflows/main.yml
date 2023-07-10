@@ -20,19 +20,18 @@ jobs:
 
       - name: open PR main-sync -> dev
         run: |
-          
 
 
- 
 
-            git checkout origin main-sync
-            git push origin main-sync
-            gh pr create --base dev --head main-sync --title "Automated PR" --body "Automated PR" 
-            gh pr merge --merge --delete-branch
-          
+
+
+          git checkout origin main-sync
+          git push origin main-sync
+          gh pr create --base dev --head main-sync --title "Automated PR" --body "Automated PR" 
+          gh pr merge --merge --delete-branch
 
         env:
           GH_TOKEN: ${{ github.token }}
 # gh pr merge --merge
 
-if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
+#if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
