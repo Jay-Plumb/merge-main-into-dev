@@ -28,7 +28,7 @@ jobs:
             git fetch origin main-sync  # Fetch the latest commits from main-sync branch
             git pull origin main-sync   # Merge the latest commits from main-sync branch into the current branch
             git checkout main-sync
-            git merge origin/main --allow-unrelated-histories
+            git merge origin/main --allow-unrelated-histories --no-ff
             git push origin main-sync
 
           else
