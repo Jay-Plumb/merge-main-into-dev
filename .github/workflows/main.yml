@@ -20,18 +20,19 @@ jobs:
 
       - name: open PR main-sync -> dev
         run: |
-          if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
-            echo "TODO:Branch exists"
+          
 
-          else
-            echo "Branch does not exist"
-            git branch main-sync
-            git checkout main-sync
+
+ 
+
+            git checkout origin main-sync
             git push origin main-sync
             gh pr create --base dev --head main-sync --title "Automated PR" --body "Automated PR" 
             gh pr merge --merge --delete-branch
-          fi
+          
 
         env:
           GH_TOKEN: ${{ github.token }}
 # gh pr merge --merge
+
+if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
