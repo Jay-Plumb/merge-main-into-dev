@@ -34,4 +34,3 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 # gh pr merge --merge
 
-#if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
