@@ -25,10 +25,10 @@ jobs:
 
       - name: open PR main-sync -> dev
         run: |
-          git branch main-sync-${{ steps.version.outputs.BUILD_DATE }}
-          git checkout main-sync-${{ steps.version.outputs.BUILD_DATE }}
-          git push origin main-sync-${{ steps.version.outputs.BUILD_DATE }}
-          gh pr create --base dev --head main-sync-${{ steps.version.outputs.BUILD_DATE }} --title "Automated PR" --body "Automated PR" 
+          git branch main-sync
+          git checkout main-sync
+          git push origin main-sync
+          gh pr create --base dev --head main-sync --title "Automated PR" --body "Automated PR" 
           gh pr merge --merge --delete-branch
         env:
           GH_TOKEN: ${{ github.token }}
