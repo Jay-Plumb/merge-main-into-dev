@@ -29,9 +29,7 @@ jobs:
           git checkout main-sync-${{ steps.version.outputs.BUILD_DATE }}
           git push origin main-sync-${{ steps.version.outputs.BUILD_DATE }}
           gh pr create --base dev --head main-sync-${{ steps.version.outputs.BUILD_DATE }} --title "Automated PR" --body "Automated PR" 
-          gh pr merge --merge 
-          gh checkout dev
-          bit branch -D main-sync-${{ steps.version.outputs.BUILD_DATE }}
+          gh pr merge --merge
 
         env:
           GH_TOKEN: ${{ github.token }}
