@@ -24,7 +24,7 @@ jobs:
             echo "Branch exists"
             git fetch origin main-sync  # Fetch the latest commits from main-sync branch
             git checkout main-sync
-            git merge origin/main
+            git merge origin/main --allow-unrelated-histories
             git push origin main-sync
             gh pr merge --auto --merge
           else
