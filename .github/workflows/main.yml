@@ -12,13 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check if branch exists
-        id: check-branch-exists
-        uses: GuillaumeFalourd/branch-exists@v1
-        with:
-          branch: main-sync
-
-      - name: "Set current date as env variable"
+      - name: "Create Unique Branch Name"
         run: |
           echo "BUILD_DATE=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
 
@@ -29,9 +23,8 @@ jobs:
           git branch main-sync-${{ steps.version.outputs.BUILD_DATE }}
           git checkout main-sync-${{ steps.version.outputs.BUILD_DATE }}
           git push origin main-sync-${{ steps.version.outputs.BUILD_DATE }}
-          gh pr create --base dev --head main-sync-${{ steps.version.outputs.BUILD_DATE }} --title "Automated PR" --body "Automated PR" 
+          gh pr create --base dev --head main-sync-${{ steps.version.outputs.BUILD_DATE }} --title "Automated PR" --body "Automated PR to merge in any changes committed from `main` into `dev`" 
           gh pr merge --merge
 
         env:
           GH_TOKEN: ${{ github.token }}
-#if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
