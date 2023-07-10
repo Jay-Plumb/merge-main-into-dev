@@ -11,12 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: open PR main -> dev
+      - name: open PR main-sync -> dev
+          echo "BRANCH_NAME=main-sync" >> $GITHUB_ENV
         run: |
-          git branch new-branch  # Create a new branch
-          git checkout new-branch  # Switch to the new branch
-          git push origin new-branch  # Push the new branch to remote
-          gh pr create --base dev --head new-branch --title "Automated PR" --body "Automated PR"  # Open a pull request
+          git branch ${{ env.BRANCH_NAME }}
+          git checkout ${{ env.BRANCH_NAME }}
+          git push origin ${{ env.BRANCH_NAME }}
+          gh pr create --base dev --head ${{ env.BRANCH_NAME }} --title "Automated PR" --body "Automated PR"  # Open a pull request
 
         env:
           GH_TOKEN: ${{ github.token }}
