@@ -20,7 +20,7 @@ jobs:
 
       - name: "Set current date as env variable"
         run: |
-          echo "BUILD_DATE=$(date +'%Y-%m-%d-%H:%M:%S')" >> $GITHUB_OUTPUT
+          echo "BUILD_DATE=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
 
         id: version
 
