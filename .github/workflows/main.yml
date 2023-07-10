@@ -13,7 +13,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: open PR main -> dev
         run: |
-          gh pr create --base dev --title "Automated PR" --body "Automated PR"
-          gh pr merge --merge
+          git branch new-branch  # Create a new branch
+          git checkout new-branch  # Switch to the new branch
+          git push origin new-branch  # Push the new branch to remote
+          gh pr create --base dev --head new-branch --title "Automated PR" --body "Automated PR"  # Open a pull request
+
         env:
           GH_TOKEN: ${{ github.token }}
+# gh pr merge --merge
