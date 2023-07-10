@@ -12,4 +12,4 @@ Append `/settings/actions` to the repository URL and under `Workflow permissions
 
 ![permissions](./docs/permissions.png)
 
-## hi
+## release 1.2.1.
