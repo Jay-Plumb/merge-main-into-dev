@@ -38,6 +38,7 @@ jobs:
             git checkout main-sync
             git push origin main-sync
             gh pr create --base dev --head main-sync --title "Automated PR" --body "Automated PR" 
+            gh pr merge --merge --delete-branch
           fi
 
         env:
