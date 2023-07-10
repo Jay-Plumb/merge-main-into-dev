@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: open PR
+      - name: open PR main -> dev
         run: |
           gh pr create --base dev --title "Automated PR" --body "Automated PR"
-          gh pr --merge
+          gh pr merge --merge
         env:
           GH_TOKEN: ${{ github.token }}
