@@ -26,9 +26,9 @@ jobs:
             git config --global user.email "github-action@pixelcabin.io"
             git config --global user.name "Github Action"
             git fetch origin main-sync  # Fetch the latest commits from main-sync branch
-            git pull origin main-sync   # Merge the latest commits from main-sync branch into the current branch
+            git pull origin main-sync --allow-unrelated-histories  # Merge the latest commits from main-sync branch into the current branch
             git checkout main-sync
-            git merge origin/main --allow-unrelated-histories --no-ff
+            git merge origin/main  --no-ff
             git push origin main-sync
 
           else
