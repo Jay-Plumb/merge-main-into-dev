@@ -22,6 +22,7 @@ jobs:
         run: |
           if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
             echo "Branch exists"
+            git config pull.rebase false
             git config --global user.email "github-action@pixelcabin.io"
             git config --global user.name "Github Action"
             git fetch origin main-sync  # Fetch the latest commits from main-sync branch
