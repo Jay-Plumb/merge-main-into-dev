@@ -22,13 +22,12 @@ jobs:
         run: |
           if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
             echo "Branch exists"
-            git fetch origin main-sync  # Fetch the latest commits from main-sync branch
             git checkout main-sync
-            git merge origin/main --ff-only  # Merge the latest commits from main into main-sync using fast-forward only
+            git merge main --ff-only 
             git push origin main-sync
             gh pr merge --auto --merge
-            
           else
+
             echo "Branch does not exist"
             git branch main-sync
             git checkout main-sync
