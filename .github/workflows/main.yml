@@ -24,13 +24,11 @@ jobs:
             echo "Branch exists"
             git fetch origin main-sync  # Fetch the latest commits from main-sync branch
             git checkout main-sync
-            git config --global user.email "github_action@pixelcabin.io"
+            git config --global user.email "github-action@pixelcabin.io"
             git config --global user.name "Github Action"
             git merge origin/main --allow-unrelated-histories
             git push origin main-sync
 
-
-            
           else
 
             echo "Branch does not exist"
