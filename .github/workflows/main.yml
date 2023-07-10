@@ -21,18 +21,9 @@ jobs:
       - name: open PR main-sync -> dev
         run: |
           if ${{ steps.check-branch-exists.outputs.exists == 'true' }}; then
-            echo "Branch exists"
-            git config pull.ff only
-            git config --global user.email "github-action@pixelcabin.io"
-            git config --global user.name "Github Action"
-            git fetch origin main-sync  # Fetch the latest commits from main-sync branch
-            git pull origin main-sync --allow-unrelated-histories  # Merge the latest commits from main-sync branch into the current branch
-            git checkout main-sync
-            git merge origin/main
-            git push origin main-sync
+            echo "TODO:Branch exists"
 
           else
-
             echo "Branch does not exist"
             git branch main-sync
             git checkout main-sync
