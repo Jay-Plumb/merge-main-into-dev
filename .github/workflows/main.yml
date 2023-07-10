@@ -1,4 +1,4 @@
-name: Open PR to merge upstream changes (main) into development workflow (dev)
+name: Automate Upstream changes (main) into development (dev) workflow
 
 on:
   push:
@@ -6,19 +6,14 @@ on:
 
   workflow_dispatch:
 
-permissions: write-all
-
-env:
-  GH_TOKEN: ${{ github.token }}
-
 jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          branch: dev
-          title: "open PR"
+      - name: open PR main -> dev
+        run: |
+          gh pr create --base dev --title "Automated PR" --body "Automated PR"
+          gh pr merge --merge
+        env:
+          GH_TOKEN: ${{ github.token }}
