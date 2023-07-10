@@ -12,4 +12,3 @@ Append `/settings/actions` to the repository URL and under `Workflow permissions
 
 ![permissions](./docs/permissions.png)
 
-## Feature 1 -conf
