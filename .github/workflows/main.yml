@@ -12,12 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: open PR main-sync -> dev
-          echo "BRANCH_NAME=main-sync" >> $GITHUB_ENV
+          echo "branch_name=main-sync" >> $GITHUB_ENV
         run: |
-          git branch ${{ env.BRANCH_NAME }}
-          git checkout ${{ env.BRANCH_NAME }}
-          git push origin ${{ env.BRANCH_NAME }}
-          gh pr create --base dev --head ${{ env.BRANCH_NAME }} --title "Automated PR" --body "Automated PR"  # Open a pull request
+          git branch main-sync
+          git checkout main-sync
+          git push origin main-sync
+          gh pr create --base dev --head main-sync --title "Automated PR" --body "Automated PR"  # Open a pull request
 
         env:
           GH_TOKEN: ${{ github.token }}
